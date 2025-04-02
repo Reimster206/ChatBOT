@@ -1,0 +1,30 @@
+{
+    "name": "ChatBOT Adam",
+    "short_name": "ChatBOT",
+    "start_url": ".",
+    "background_color": "#EEEEFF",
+    "theme_color": "#C8C7FF",
+    "display": "standalone",
+    "lang": "en",
+    "orientation": "any",
+    "description": "Strona wykonana jako ChatBOT pomocnik",
+    "scope": "https://reimster206.github.io/list",
+    "prefer_related_applications": true,
+    "serviceWorker":true,
+    "dir": "auto",
+    "handle_links":"preferred",
+    "icons": [
+        {
+            "src": "img/logo192.png",
+            "sizes": "192x192",
+            "type": "img/png",
+            "purpose": "any"
+        },
+        {
+            "src": "img/logo512.png",
+            "sizes": "512x512",
+            "type": "img/png",
+            "purpose": "maskable"
+        }
+    ]
+}
