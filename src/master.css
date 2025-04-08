@@ -238,3 +238,23 @@ body{
 .chat-form .chat-controls button:hover{
     background: #F1F1FF;
 }
+
+@media (max-width:400px) {
+    .chatbot-popup{
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        border-radius: 0;
+        width: 100%;
+    }
+    .chatbot-popup .chat-header{
+        padding: 12px 15px;
+    }
+    .chat-body{
+        height: calc(90%-55px);
+        padding: 25px 15px;
+    }
+    .chat-footer{
+        padding: 10px 10px 15px;
+    }
+}
