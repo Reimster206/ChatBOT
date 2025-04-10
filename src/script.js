@@ -9,6 +9,8 @@ const userData = {
     message:null
 }
 
+const chatHistory = [];
+
 const createMessageElement = (content, ...classes) =>{
     const div = document.createElement("div");
     div.classList.add("message", ...classes);
@@ -18,16 +20,15 @@ const createMessageElement = (content, ...classes) =>{
 
 const generateBotResponse = async (incomingMessageDiv) =>{
     const messageElement = incomingMessageDiv.querySelector(".message-text");
+    chatHistory.push({
+        parts: [{role: "user", text: userData.message
+    }]});
 
     const requestOptions = {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
-            contents: [{
-                parts: [{
-                    text: userData.message
-                }]
-            }]
+            contents: chatHistory
         })
     }
 
@@ -37,6 +38,9 @@ const generateBotResponse = async (incomingMessageDiv) =>{
         if(!response.ok) throw new Error(data.error.message);
         const apiResponseText = data.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g,"$1").trim();
         messageElement.innerText=apiResponseText;
+        chatHistory.push({
+            parts: [{role: "model", text: apiResponseText
+        }]});
     }catch(error){
         console.log(error);
     }finally{
